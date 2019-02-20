@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "621902316073",
+    "firebase_url": "https://flexnany-760f6.firebaseio.com",
+    "project_id": "flexnany-760f6",
+    "storage_bucket": "flexnany-760f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621902316073:android:bdebd3551c835d09",
+        "android_client_info": {
+          "package_name": "com.ngwiri.flexnany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621902316073-qkk4839ij9a59l9rr4a4h4o0l9ob536u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ngwiri.flexnany",
+            "certificate_hash": "343784aa9543a5a9b54b37aee56b733002efd8eb"
+          }
+        },
+        {
+          "client_id": "621902316073-8fu5cv7rgrffgainpcfnu9jqpmost6bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnz_VwXOEm6yPZS3Hb5tXVPPFEt5uVVfQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621902316073-8fu5cv7rgrffgainpcfnu9jqpmost6bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
