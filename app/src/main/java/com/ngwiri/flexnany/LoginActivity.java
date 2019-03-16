@@ -2,6 +2,7 @@ package com.ngwiri.flexnany;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,6 +23,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private static View view;
     private static Animation shakeAnimation;
+
+    boolean doubleBackToExitPressedOnce = false;
 
     @BindView(R.id.loginLayout) LinearLayout mLoginLayout;
     @BindView(R.id.loginbuton) Button mLoginbuton;
@@ -92,5 +95,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(getApplicationContext(), "Do Login.", Toast.LENGTH_SHORT)
                     .show();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
