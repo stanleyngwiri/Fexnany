@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +17,7 @@ public class CustomToast {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         // inflate the layout over view
-        View layout = inflater.inflate(R.layout.customtoast,
-                (ViewGroup) view.findViewById(R.id.toast));
+        View layout = inflater.inflate(R.layout.customtoast , null);
 
         // Get TextView id and set error
         TextView text = (TextView) layout.findViewById(R.id.error_toast);
