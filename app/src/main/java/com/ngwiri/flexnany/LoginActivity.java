@@ -179,20 +179,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }, 2000);
     }
 
-//    @Override
-//    protected  void onStart(){
-//        super.onStart();
-//        FirebaseUser user=mAuth.getCurrentUser();
-//        if(user!=null){
-//            mAuth.addAuthStateListener(authStateListener);
-//        }
-//    }
-//
-//    @Override
-//    protected  void  onStop(){
-//        super.onStop();
-//        if(authStateListener!=null){
-//            mAuth.removeAuthStateListener(authStateListener);
-//        }
-//    }
+    @Override
+    protected  void onStart(){
+        super.onStart();
+        FirebaseUser user=mAuth.getCurrentUser();
+        if(user!=null){
+            mAuth.addAuthStateListener(authStateListener);
+        }
+    }
+
+    @Override
+    protected  void  onStop(){
+        super.onStop();
+        if(authStateListener!=null){
+            mAuth.removeAuthStateListener(authStateListener);
+        }
+    }
 }
