@@ -118,13 +118,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     //<--- PROGRESSDIALOG START
     //setCancelable() to "false" so that users cannot close the dialog manually.
-//    private void createAuthProgressDialog() {
-//        progressDialog = new ProgressDialog(this);
-//        progressDialog.setTitle("Loading ...");
-//        progressDialog.setMessage("Authenticating in Progress...");
-//        progressDialog.setCancelable(false);
-//
-//    }
+    private void createAuthProgressDialog() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading ...");
+        progressDialog.setMessage("Authenticating in Progress...");
+        progressDialog.setCancelable(false);
+
+    }
     //PROGRESSDIALOG END --->
 
 
