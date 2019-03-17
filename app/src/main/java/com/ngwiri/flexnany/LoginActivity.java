@@ -147,18 +147,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-//    public void addAuth(){
-//        authStateListener=new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-//                if(user!=null){
-//                    Intent intent=new Intent( LoginActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        };
-//    }
+    public void addAuth(){
+        authStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+                if(user!=null){
+                    Intent intent=new Intent( LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        };
+    }
 
     @Override
     public void onBackPressed() {
