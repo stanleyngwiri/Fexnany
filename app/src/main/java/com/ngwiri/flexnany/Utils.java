@@ -2,8 +2,8 @@ package com.ngwiri.flexnany;
 
 public class Utils {
     //Email Validation pattern
-    public static final String regEx = "\"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$\"";
+    public static final String regEx = "^[_A-Za-z]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
-    public static final String Login_Activity = "Login_Activity";
-    public static final String SignUp_Activity = "SignUp_Activity";
+//    public static final String LoginActivity = "Login_Activity";
+//    public static final String SignUp_Activity = "SignUp_Activity";
 }
