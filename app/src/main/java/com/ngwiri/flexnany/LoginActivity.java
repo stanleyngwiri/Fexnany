@@ -62,7 +62,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mLoginbuton.setOnClickListener(this);
         mSignUp_Text.setOnClickListener(this);
 
-         shakeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+        shakeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+
+        //<--- CHECKING INTERNET CONNECTION START
+        if(Network.isInternetAvailable(LoginActivity.this)) //returns true if internet available
+        {
+
+        }
+        else
+        {
+            new CustomToast().Show_Toast(getApplicationContext(), view,
+                    "No Internet Connection");
+
+        }
+
+        //CHECKING INTERNET CONNECTION END --->
 
 
     }
@@ -76,12 +90,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             checkValidation();
 
 
-
         }
 
         if (v == mSignUp_Text){
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -111,8 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     "Your Email Id is Invalid.");
             // Else do login and do your stuff
         else
-            Toast.makeText(getApplicationContext(), "Do Login.", Toast.LENGTH_SHORT)
-                    .show();
+            login(mLoginEmail.getText().toString(),mPassword.getText().toString());
 
     }
 
@@ -129,7 +142,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-    public  void login(String email,String password){
+
+
+    public  void login (String email,String password){
         progressDialog.show();
         mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -139,6 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(task.isSuccessful()){
                     Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else{
                     Toast.makeText(LoginActivity.this,"Authentication Failed",Toast.LENGTH_LONG).show();
