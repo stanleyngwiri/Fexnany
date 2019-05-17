@@ -1,4 +1,4 @@
-package com.ngwiri.flexnany;
+package com.ngwiri.flexnany.models;
 
 public class Maids {
 
