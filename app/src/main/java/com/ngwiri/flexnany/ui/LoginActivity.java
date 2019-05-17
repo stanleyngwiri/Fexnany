@@ -1,4 +1,4 @@
-package com.ngwiri.flexnany;
+package com.ngwiri.flexnany.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -20,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.ngwiri.flexnany.Network;
+import com.ngwiri.flexnany.R;
+import com.ngwiri.flexnany.Utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -95,7 +98,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v == mSignUp_Text){
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
-            finish();
         }
     }
 

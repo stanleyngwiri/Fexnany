@@ -1,4 +1,4 @@
-package com.ngwiri.flexnany;
+package com.ngwiri.flexnany.ui;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ngwiri.flexnany.R;
 
 public class CustomToast {
 

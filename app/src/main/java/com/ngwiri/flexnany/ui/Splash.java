@@ -1,4 +1,4 @@
-package com.ngwiri.flexnany;
+package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ngwiri.flexnany.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
