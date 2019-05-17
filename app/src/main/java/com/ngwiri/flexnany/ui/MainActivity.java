@@ -1,26 +1,35 @@
-package com.ngwiri.flexnany;
+package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.ngwiri.flexnany.services.MaidService;
+import com.ngwiri.flexnany.Network;
+import com.ngwiri.flexnany.R;
+
+import java.io.IOException;
 
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
-import static com.ngwiri.flexnany.SignUpActivity.view;
+import static com.ngwiri.flexnany.ui.SignUpActivity.view;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    boolean doubleBackToExitPressedOnce = false;
+//    boolean doubleBackToExitPressedOnce = false;
+public static final String TAG = MainActivity.class.getSimpleName();
+
 
 
 
@@ -30,11 +39,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+//        getmaids method called
+
+        getMaids();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //<--- CHECKING INTERNET CONNECTION START
-        if(Network.isInternetAvailable(MainActivity.this)) //returns true if internet available
+        if(Network.isInternetAvailable(MainActivity.this))
+            //returns true if internet available
         {
 
         }
@@ -82,25 +96,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finish();
     }
 
-    //EXIT APP ON DOUBLE BACK PRESS
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
+    private void getMaids( ) {
 
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText( MainActivity.this, "Click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
+        final MaidService maidService = new MaidService();
+        
+        MaidService.findMaids(new Callback() {
 
             @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
             }
-        }, 2000);
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    Log.v(TAG, jsonData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
+
+    //EXIT APP ON DOUBLE BACK PRESS
+//    @Override
+//    public void onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed();
+//            return;
+//        }
+//
+//        this.doubleBackToExitPressedOnce = true;
+//        Toast.makeText( MainActivity.this, "Click BACK again to exit", Toast.LENGTH_SHORT).show();
+//
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                doubleBackToExitPressedOnce=false;
+//            }
+//        }, 2000);
+//    }
 
 
 
