@@ -11,11 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.ngwiri.flexnany.services.MaidService;
 import com.ngwiri.flexnany.Network;
 import com.ngwiri.flexnany.R;
+import com.ngwiri.flexnany.models.Maids;
+import com.ngwiri.flexnany.services.MaidService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import okhttp3.Call;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //    boolean doubleBackToExitPressedOnce = false;
 public static final String TAG = MainActivity.class.getSimpleName();
+public ArrayList<Maids> mMaids = new ArrayList<>();
 
 
 
@@ -111,7 +114,13 @@ public static final String TAG = MainActivity.class.getSimpleName();
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
+
+                    if (response.isSuccessful()){
+
+                        Log.v(TAG, jsonData);
+                        mMaids = maidService.processResults(response);
+
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
