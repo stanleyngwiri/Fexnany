@@ -3,8 +3,9 @@ package com.ngwiri.flexnany.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,12 +14,14 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ngwiri.flexnany.Network;
 import com.ngwiri.flexnany.R;
+import com.ngwiri.flexnany.adapters.maidsListAdapter;
 import com.ngwiri.flexnany.models.Maids;
 import com.ngwiri.flexnany.services.MaidService;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,7 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 public static final String TAG = MainActivity.class.getSimpleName();
 public ArrayList<Maids> mMaids = new ArrayList<>();
 
+private maidsListAdapter mAdapter;
 
+
+@BindView(R.id.maidsRecyclerView) RecyclerView mMaidsRecyclerView;
 
 
     @Override
@@ -43,7 +49,6 @@ public ArrayList<Maids> mMaids = new ArrayList<>();
         ButterKnife.bind(this);
 
 //        getmaids method called
-
         getMaids();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -112,18 +117,34 @@ public ArrayList<Maids> mMaids = new ArrayList<>();
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
 
-                    if (response.isSuccessful()){
 
-                        Log.v(TAG, jsonData);
-                        mMaids = maidService.processResults(response);
+                //create and set an instance of the LayoutManager the RecyclerView requires
 
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter = new maidsListAdapter(getApplicationContext(), mMaids);
+                        mMaidsRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+                        mMaidsRecyclerView.setLayoutManager(layoutManager);
+                        mMaidsRecyclerView.setHasFixedSize(true);
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                });
+
+                //TEST RESPONSE ON LOGCAT
+//                try {
+//                    String jsonData = response.body().string();
+//
+//                    if (response.isSuccessful()){
+//
+//                        Log.v(TAG, jsonData);
+//                        mMaids = maidService.processResults(response);
+//
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
     }
