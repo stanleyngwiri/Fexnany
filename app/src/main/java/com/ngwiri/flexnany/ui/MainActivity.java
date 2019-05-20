@@ -33,13 +33,13 @@ import static com.ngwiri.flexnany.ui.SignUpActivity.view;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 //    boolean doubleBackToExitPressedOnce = false;
-public static final String TAG = MainActivity.class.getSimpleName();
-public ArrayList<Maids> mMaids = new ArrayList<>();
+    public static final String TAG = MainActivity.class.getSimpleName();
+    public ArrayList<Maids> mMaids = new ArrayList<>();
 
-private maidsListAdapter mAdapter;
+    private maidsListAdapter mAdapter;
 
 
-@BindView(R.id.maidsRecyclerView) RecyclerView mMaidsRecyclerView;
+    @BindView(R.id.maidsRecyclerView) RecyclerView mMaidsRecyclerView;
 
 
     @Override
@@ -148,7 +148,33 @@ private maidsListAdapter mAdapter;
             }
         });
     }
-    
+
+
+    //    @Override
+//    public void onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed();
+//            return;
+//        }
+//
+//        this.doubleBackToExitPressedOnce = true;
+//        Toast.makeText( LoginActivity.this, "Click BACK again to exit", Toast.LENGTH_SHORT).show();
+//
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                doubleBackToExitPressedOnce=false;
+//            }
+//        }, 2000);
+//    }
+
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
 
 
 }
