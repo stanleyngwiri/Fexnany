@@ -20,8 +20,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maidsViewHolder> {
 
 
-    public static final int MAX_WIDTH = 300;
-    public static final int MAX_HEIGHT = 300;
+    public static final int MAX_WIDTH = 100;
+    public static final int MAX_HEIGHT = 100;
     private ArrayList<Maids> mMaids = new ArrayList<>();
     private Context mContext;
 
@@ -36,6 +36,7 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
         @BindView(R.id.maidPlaceholderImage) CircleImageView mMaidPlaceholderImage;
         @BindView(R.id.maidName) TextView mMaidName;
         @BindView(R.id.maidMsisdn) TextView mMaidMsisdn;
+        @BindView(R.id.maidEmail) TextView mMaidEmail;
         @BindView(R.id.maidDescription) TextView mMaidDescription;
         @BindView(R.id.maidAddress) TextView mMaidAddress;
         @BindView(R.id.maidRating) TextView mMaidRating;
@@ -58,6 +59,7 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
             Picasso.get().load("").placeholder(R.drawable.female_avatar).resize(MAX_WIDTH, MAX_HEIGHT).into(mMaidPlaceholderImage);
             mMaidName.setText(maids.getmName());
             mMaidMsisdn.setText(maids.getmMsisdn());
+            mMaidEmail.setText(maids.getmEmail());
             mMaidDescription.setText(maids.getmDescription());
             mMaidAddress.setText(maids.getmAddress());
             mMaidRating.setText(maids.getmRating() + "/5");
