@@ -3,7 +3,6 @@ package com.ngwiri.flexnany.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
-    boolean doubleBackToExitPressedOnce = false;
+//    boolean doubleBackToExitPressedOnce = false;
 
 
 
@@ -186,35 +184,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(SignUpActivity.this, "Invalid Credentials.",
-                                    Toast.LENGTH_SHORT).show();
-
+                            new CustomToast().Show_Toast(getApplicationContext(), view,
+                                    "Invalid Credentials.");
                         }
                     }
                 });
     }
-
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText( SignUpActivity.this, "Click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
-
-
-
-
 
 }
