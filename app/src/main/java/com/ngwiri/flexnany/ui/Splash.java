@@ -33,7 +33,7 @@ public class Splash extends AppCompatActivity {
         //<--- for FadeIn anim
 
     Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
-    fadeIn.setDuration(1600);
+    fadeIn.setDuration(1000);
     mAppName.startAnimation(fadeIn);
 
         //for FadeIn END --->
@@ -48,6 +48,6 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        },1500);
     }
 }

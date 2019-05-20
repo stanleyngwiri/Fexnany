@@ -61,7 +61,6 @@ public class Maids {
         return mExperience;
     }
 
-
     public String getmAge() {
         return mAge;
     }
