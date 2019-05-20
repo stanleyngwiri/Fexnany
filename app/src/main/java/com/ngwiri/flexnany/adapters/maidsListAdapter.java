@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.ngwiri.flexnany.R;
 import com.ngwiri.flexnany.models.Maids;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maidsViewHolder> {
 
+
+    public static final int MAX_WIDTH = 300;
+    public static final int MAX_HEIGHT = 300;
     private ArrayList<Maids> mMaids = new ArrayList<>();
     private Context mContext;
 
@@ -51,6 +55,7 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
 
         // bindMaids() set the contents of the layout's TextViews to the attributes of a specific maid
         public void bindMaids(Maids maids) {
+            Picasso.get().load("").placeholder(R.drawable.female_avatar).resize(MAX_WIDTH, MAX_HEIGHT).into(mMaidPlaceholderImage);
             mMaidName.setText(maids.getmName());
             mMaidMsisdn.setText(maids.getmMsisdn());
             mMaidDescription.setText(maids.getmDescription());
