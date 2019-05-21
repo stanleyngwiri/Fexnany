@@ -3,8 +3,8 @@ package com.ngwiri.flexnany.models;
 public class Maids {
 
     private String mName;
-    private String mEmail;
     private String mMsisdn;
+    private String mEmail;
     private String mDescription;
     private String mAddress;
     private String mRating;
@@ -14,11 +14,11 @@ public class Maids {
     private String mStatus;
 
 
-    public Maids(String Name, String Email, String Msisdn, String Description, String Address, String Rating, String Services, String Experience, String Age, String Status) {
+    public Maids(String Name, String Msisdn, String Email, String Description, String Address, String Rating, String Services, String Experience, String Age, String Status) {
 
         this.mName = Name;
-        this.mEmail = Email;
         this.mMsisdn = Msisdn;
+        this.mEmail = Email;
         this.mDescription = Description;
         this.mAddress = Address;
         this.mRating = Rating;
@@ -33,12 +33,12 @@ public class Maids {
         return mName;
     }
 
-    public String getmEmail() {
-        return mEmail;
-    }
-
     public String getmMsisdn() {
         return mMsisdn;
+    }
+
+    public String getmEmail() {
+        return mEmail;
     }
 
     public String getmDescription() {
