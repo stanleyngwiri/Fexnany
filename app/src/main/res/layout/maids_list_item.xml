@@ -11,7 +11,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/maidPlaceholderImage"
-        android:src="@drawable/female_avatar"
+        android:src="@drawable/girl"
         android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_gravity="center"
@@ -215,7 +215,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:text="Status : "
+                android:text="Services : "
                 />
 
             <TextView
@@ -234,13 +234,21 @@
             android:orientation="horizontal"
             >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="Status : "
+                />
+
+            <TextView
+                android:id="@+id/maidStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/maidStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
 
 
@@ -250,5 +258,15 @@
 
 
     </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#5000"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        />
+
 
 </LinearLayout>
