@@ -43,7 +43,7 @@ public class MaidService {
             String jsonData = response.body().string();
             if (response.isSuccessful()){
                 JSONObject maidsServiceJSON = new JSONObject(jsonData);
-                JSONArray maidsJSON = maidsServiceJSON.getJSONArray("");
+                JSONArray maidsJSON = maidsServiceJSON.getJSONArray("records");
 
 
                 for (int i=0; i< maidsJSON.length();i++){
