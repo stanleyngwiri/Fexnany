@@ -5,8 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,15 +24,15 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
 
-        Typeface balooFonts = Typeface.createFromAsset(getAssets(), "fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.ttf" );
-        mAppName.setTypeface(balooFonts);
+        Typeface fredokaOneFonts = Typeface.createFromAsset(getAssets(), "fonts/fredoka_one/FredokaOne-Regular.ttf" );
+        mAppName.setTypeface(fredokaOneFonts);
 
 
         //<--- for FadeIn anim
 
-    Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
-    fadeIn.setDuration(1000);
-    mAppName.startAnimation(fadeIn);
+//    Animation fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
+//    fadeIn.setDuration(1000);
+//    mAppName.startAnimation(fadeIn);
 
         //for FadeIn END --->
 
