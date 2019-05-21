@@ -117,11 +117,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-
+//                try{
+//                    mMaids = maidService.processResults(response);
+//                    Log.d("Response",response.body().string());
+//
+//                }catch (Exception ex){
+//
+//                }
 
                 //create and set an instance of the LayoutManager the RecyclerView requires
 
                 MainActivity.this.runOnUiThread(new Runnable() {
+
                     @Override
                     public void run() {
                         mAdapter = new maidsListAdapter(getApplicationContext(), mMaids);
@@ -131,20 +138,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         mMaidsRecyclerView.setHasFixedSize(true);
                     }
                 });
-
-                //TEST RESPONSE ON LOGCAT
-//                try {
-//                    String jsonData = response.body().string();
-//
-//                    if (response.isSuccessful()){
-//
-//                        Log.v(TAG, jsonData);
-//                        mMaids = maidService.processResults(response);
-//
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
             }
         });
     }
