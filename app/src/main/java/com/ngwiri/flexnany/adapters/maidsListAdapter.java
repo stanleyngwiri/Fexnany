@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.ngwiri.flexnany.R;
 import com.ngwiri.flexnany.models.Maids;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -56,15 +55,15 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
 
         // bindMaids() set the contents of the layout's TextViews to the attributes of a specific maid
         public void bindMaids(Maids maids) {
-            Picasso.get().load("").placeholder(R.drawable.female_avatar).resize(MAX_WIDTH, MAX_HEIGHT).into(mMaidPlaceholderImage);
+//            Picasso.get().load("").placeholder(R.drawable.female_avatar).resize(MAX_WIDTH, MAX_HEIGHT).into(mMaidPlaceholderImage);
             mMaidName.setText(maids.getmName());
             mMaidMsisdn.setText(maids.getmMsisdn());
             mMaidEmail.setText(maids.getmEmail());
             mMaidDescription.setText(maids.getmDescription());
             mMaidAddress.setText(maids.getmAddress());
-            mMaidRating.setText(maids.getmRating() + "/5");
+            mMaidRating.setText(maids.getmRating() + " /5");
             mMaidExperience.setText(maids.getmExperience());
-            mMaidAge.setText(maids.getmAge() + "Years");
+            mMaidAge.setText(maids.getmAge() + " Years");
             mMaidServices.setText(maids.getmServices());
             mMaidStatus.setText(maids.getmStatus());
         }
