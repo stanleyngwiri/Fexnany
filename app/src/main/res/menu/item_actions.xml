@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_call"
+        android:title="RATE"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_email"
+        android:title="SHARE"
+        android:visible="true"
+        app:showAsAction="never" />
 
-</LinearLayout>
+</menu>
