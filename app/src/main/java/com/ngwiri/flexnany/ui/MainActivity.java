@@ -2,10 +2,12 @@ package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,17 +32,16 @@ import okhttp3.Response;
 import static com.ngwiri.flexnany.ui.SignUpActivity.view;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    boolean doubleBackToExitPressedOnce = false;
+    //    boolean doubleBackToExitPressedOnce = false;
     public static final String TAG = MainActivity.class.getSimpleName();
     public ArrayList<Maids> mMaids = new ArrayList<>();
-
+    @BindView(R.id.swipeRefresh)
+    SwipeRefreshLayout mSwipeRefresh;
+    @BindView(R.id.maidsRecyclerView)
+    RecyclerView mMaidsRecyclerView;
     private maidsListAdapter mAdapter;
-
-
-    @BindView(R.id.maidsRecyclerView) RecyclerView mMaidsRecyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +52,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        getmaids method called
         getMaids();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //<--- CHECKING INTERNET CONNECTION START
-        if(Network.isInternetAvailable(MainActivity.this))
-            //returns true if internet available
+        if (Network.isInternetAvailable(MainActivity.this))
+        //returns true if internet available
         {
 
-        }
-        else
-        {
+        } else {
             new CustomToast().Show_Toast(getApplicationContext(), view,
                     "No Internet Connection");
 
@@ -69,8 +68,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //CHECKING INTERNET CONNECTION END --->
 
+        mSwipeRefresh.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+//                        Log.i(LOG_TAG, "onRefresh called from SwipeRefreshLayout");
+
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+                        getMaids();
+                    }
+                }
+        );
+
 
     }
+
+
+
+    /*
+     * Sets up a SwipeRefreshLayout.OnRefreshListener that is invoked when the user
+     * performs a swipe-to-refresh gesture.
+     */
+
 
     @Override
     public void onClick(View v) {
@@ -84,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inflater.inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -104,10 +125,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finish();
     }
 
-    private void getMaids( ) {
+    private void getMaids() {
 
         final MaidService maidService = new MaidService();
-        
+
         MaidService.findMaids(new Callback() {
 
             @Override
@@ -117,13 +138,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-//                try{
-//                    mMaids = maidService.processResults(response);
-//                    Log.d("Response",response.body().string());
-//
-//                }catch (Exception ex){
-//
-//                }
+                try {
+                    mMaids = maidService.processResults(response);
+                    Log.d("Response", response.body().string());
+
+                } catch (Exception ex) {
+
+                }
 
                 //create and set an instance of the LayoutManager the RecyclerView requires
 
@@ -142,32 +163,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-
-    //    @Override
-//    public void onBackPressed() {
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed();
-//            return;
-//        }
-//
-//        this.doubleBackToExitPressedOnce = true;
-//        Toast.makeText( LoginActivity.this, "Click BACK again to exit", Toast.LENGTH_SHORT).show();
-//
-//        new Handler().postDelayed(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                doubleBackToExitPressedOnce=false;
-//            }
-//        }, 2000);
-//    }
-
-
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
     }
-
-
 
 }
