@@ -79,6 +79,7 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
             }
         });
 
+                //CALL ACTION
 
         holder.mMaidMsisdn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +89,22 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
                 String phoneNo = phone.getText().toString();
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNo, null));
                 mContext.startActivity(callIntent);
+            }
+        });
+
+                //SEND EMAIL
+
+        holder.mMaidEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView email = holder.mMaidEmail;
+                String emailToParse = "mailto:" + email.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setType("text/plain");
+                intent.setData(Uri.parse(emailToParse));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Email from FLEXNANY");
+                intent.putExtra(Intent.EXTRA_TEXT, "Place your email message here ...");
+                mContext.startActivity(Intent.createChooser(intent, "Send Email"));
             }
         });
 
@@ -127,6 +144,7 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
         // bindMaids() set the contents of the layout's TextViews to the attributes of a specific maid
         public void bindMaids(Maids maids) {
 //            Picasso.get().load("").placeholder(R.drawable.female_avatar).resize(MAX_WIDTH, MAX_HEIGHT).into(mMaidPlaceholderImage);
+            String call = "CALL";
             mMaidName.setText(maids.getmName());
             mMaidMsisdn.setText(maids.getmMsisdn());
             mMaidEmail.setText(maids.getmEmail());

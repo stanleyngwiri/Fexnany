@@ -29,8 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:drawableLeft="@drawable/dot_menu"
-                android:drawableTint="#000"
-                android:textSize="20sp" />
+                android:drawableTint="#7000"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
