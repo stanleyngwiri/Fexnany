@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.ngwiri.flexnany.Network;
 import com.ngwiri.flexnany.R;
 import com.ngwiri.flexnany.adapters.maidsListAdapter;
@@ -108,22 +107,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            logout();
+        if (id == R.id.settings) {
+            Intent intent = new Intent(MainActivity.this , SettingsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     // LOGOUT FUNCTION USING F\B
-    private void logout() {
 
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-    }
 
     private void getMaids() {
 
