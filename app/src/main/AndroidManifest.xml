@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -13,30 +12,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.Splash"
-            android:screenOrientation="portrait"
             android:noHistory="true"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ui.LoginActivity"
-            android:screenOrientation="portrait"
-            />
-
-        <activity android:name=".ui.SignUpActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SignUpActivity"
             android:noHistory="true"
-            />
+            android:screenOrientation="portrait" />
+        
+        <activity android:name=".ui.AboutActivity"
+            android:screenOrientation="portrait" />
 
+        <activity android:name=".ui.PolicyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.SettingsActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
