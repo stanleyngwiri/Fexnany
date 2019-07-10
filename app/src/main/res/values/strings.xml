@@ -3,4 +3,11 @@
     <string name="signUp_Text">Don\'t have an account already?</string>
     <string name="back_to_login">Already have an account?</string>
     <string name="invalid">Invalid Credentials</string>
+    <string name="help">Support &amp; Help</string>
+    <string name="rate">Rate App</string>
+    <string name="logout">Log Out current Account</string>
+    <string name="account">GENERAL SETTINGS</string>
+    <string name="nots">Notifications</string>
+    <string name="about">About Flexnany</string>
+    <string name="ads">Ads</string>
 </resources>
