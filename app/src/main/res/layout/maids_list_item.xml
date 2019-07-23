@@ -1,250 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/maids_list_item_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10sp">
+    android:padding="10dp">
 
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        card_view:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#1000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
 
         >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:paddingRight="20sp">
-
-            <TextView
-                android:id="@+id/actionOptions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:drawableLeft="@drawable/dot_menu"
-                android:drawableTint="#7000"
-                android:textSize="16sp" />
-
-        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:orientation="vertical"
-            android:padding="20sp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/maidPlaceholderImage"
-                android:layout_width="100sp"
-                android:layout_height="100sp"
-                android:layout_gravity="center"
-                android:src="@drawable/girl"
-
-                />
 
 
-            <TextView
-                android:id="@+id/maidName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NAME HERE"
-                android:textColor="#000"
-                android:textSize="30sp" />
+            >
 
-            <TextView
-                android:id="@+id/maidDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BIO HERE"
-
-                />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginBottom="10sp"
-                android:background="#5000" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20sp"
-                    android:drawableEnd="@drawable/location"
-                    android:drawableTint="@color/appYellow" />
-
-                <TextView
-                    android:id="@+id/maidAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="1"
-                    android:text="LOCATION HERE" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20sp"
-                    android:drawableEnd="@drawable/rates"
-                    android:drawableTint="@color/appYellow" />
-
-                <TextView
-                    android:id="@+id/maidRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="RATES HERE"
-
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:orientation="vertical">
+                android:paddingRight="20sp">
 
                 <TextView
+                    android:id="@+id/actionOptions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10sp"
-                    android:text="SERVICES"
-                    android:textColor="#000" />
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/dot_menu"
+                    android:drawableTint="#7000"
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/maidServices"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SERVICES HERE"
+            </RelativeLayout>
 
-                    />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Experience : "
-                    android:textColor="#000" />
-
-                <TextView
-                    android:id="@+id/maidExperience"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EXPERIENCE HERE" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:orientation="horizontal"
-
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Age : "
-                    android:textColor="#000" />
-
-                <TextView
-                    android:id="@+id/maidAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AGE HERE" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:orientation="horizontal"
-
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Status : "
-                    android:textColor="#000" />
-
-                <TextView
-                    android:id="@+id/maidStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="STATUS HERE" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="20sp">
 
-                <Button
-                    android:id="@+id/maidMsisdn"
-                    style="?android:attr/borderlessButtonStyle"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/maidPlaceholderImage"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/girl"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/maidName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="NUMBER HERE"
+                    android:text="NAME HERE"
+                    android:textColor="#000"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/maidDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BIO HERE"
 
                     />
 
-                <Button
-                    android:id="@+id/maidEmail"
-                    style="?android:attr/borderlessButtonStyle"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="#5000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20sp"
+                        android:drawableEnd="@drawable/location"
+                        android:drawableTint="@color/appYellow" />
+
+                    <TextView
+                        android:id="@+id/maidAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:text="LOCATION HERE" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20sp"
+                        android:drawableEnd="@drawable/rates"
+                        android:drawableTint="@color/appYellow" />
+
+                    <TextView
+                        android:id="@+id/maidRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="RATES HERE"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10sp"
+                        android:text="SERVICES"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/maidServices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SERVICES HERE"
+
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="EMAIL HERE"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal">
 
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Experience : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/maidExperience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EXPERIENCE HERE" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/maidAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AGE HERE" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/maidStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STATUS HERE" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/maidMsisdn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="NUMBER HERE"
+
+                        />
+
+                    <Button
+                        android:id="@+id/maidEmail"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="EMAIL HERE"
+
+                        />
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
-
-
         </LinearLayout>
-    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="5sp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="5sp"
         android:background="#5000" />
 

@@ -2,8 +2,8 @@ package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -46,5 +46,17 @@ public class PolicyActivity extends AppCompatActivity {
         mPolicyWebView.getSettings().setJavaScriptEnabled(true);
         mPolicyWebView.setWebViewClient(new WebViewClient());
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mPolicyWebView.canGoBack()) {
+            mPolicyWebView.goBack();}
+        else {
+            Intent intent = new Intent(PolicyActivity.this , SettingsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 }

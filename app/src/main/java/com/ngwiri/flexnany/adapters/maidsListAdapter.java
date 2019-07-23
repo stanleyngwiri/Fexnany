@@ -3,7 +3,7 @@ package com.ngwiri.flexnany.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,7 +88,10 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
                 TextView phone = holder.mMaidMsisdn;
                 String phoneNo = phone.getText().toString();
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNo, null));
-                mContext.startActivity(callIntent);
+                Intent chooserIntent = Intent.createChooser(callIntent, "Complete Action Using");
+                chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(chooserIntent);
+
             }
         });
 
@@ -104,7 +107,11 @@ public class maidsListAdapter extends RecyclerView.Adapter<maidsListAdapter.maid
                 intent.setData(Uri.parse(emailToParse));
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Email from FLEXNANY");
                 intent.putExtra(Intent.EXTRA_TEXT, "Place your email message here ...");
-                mContext.startActivity(Intent.createChooser(intent, "Send Email"));
+                Intent chooserIntent = Intent.createChooser(intent, "Complete Action Using");
+                chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(chooserIntent);
+
+//                mContext.startActivity(Intent.createChooser(intent, "Send Email"));
             }
         });
 

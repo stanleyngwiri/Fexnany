@@ -1,9 +1,9 @@
 package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -41,8 +41,21 @@ public class AboutActivity extends AppCompatActivity {
         });
 
 
-        mAboutWebView.loadUrl("https://stanleyngwiri.github.io/POLICY/");
+        mAboutWebView.loadUrl("https://stanleyngwiri.github.io/ABOUT/");
         mAboutWebView.getSettings().setJavaScriptEnabled(true);
         mAboutWebView.setWebViewClient(new WebViewClient());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mAboutWebView.canGoBack()) {
+            mAboutWebView.goBack();
+        } else {
+            Intent intent = new Intent(AboutActivity.this , SettingsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+
     }
 }

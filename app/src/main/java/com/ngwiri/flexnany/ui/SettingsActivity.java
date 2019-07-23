@@ -3,10 +3,11 @@ package com.ngwiri.flexnany.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.ngwiri.flexnany.R;
@@ -21,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.adsActions) LinearLayout mAdsActions;
     @BindView(R.id.rateAppAction) LinearLayout mRateAppAction;
     @BindView(R.id.infoAction) LinearLayout mInfoAction;
-    @BindView(R.id.logoutAction) LinearLayout  mLogoutAction;
+    @BindView(R.id.logoutAction) TextView mLogoutAction;
 
 
 
@@ -49,28 +50,38 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        mLogoutAction.setOnClickListener(this);
+        mHelpAction.setOnClickListener(this);
+        mAdsActions.setOnClickListener(this);
+        mInfoAction.setOnClickListener(this);
+
     }
 
 
     @Override
     public void onClick(View v) {
-        if(mLogoutAction == v ){
+        if(v == mLogoutAction ){
             logout();
         }
 
-        if (mHelpAction == v){
+        if (v == mHelpAction ){
             Intent mIntent = new Intent(Intent.ACTION_SENDTO);
             mIntent.setData(Uri.parse("mailto:"));
             mIntent.putExtra(Intent.EXTRA_EMAIL  , new String[] {"customerservice@flexnany.com"});
             mIntent.putExtra(Intent.EXTRA_SUBJECT, "CUSTOMER SERVICE");
-            startActivity(Intent.createChooser(mIntent, "Send Email Using..."));
+            startActivity(Intent.createChooser(mIntent, "Complete Action Using"));
         }
 
-        if (mAdsActions == v){
+        if (v == mAdsActions){
                 Intent intent = new Intent(SettingsActivity.this, PolicyActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+        }
+
+        if (v == mInfoAction){
+            Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
 
     }

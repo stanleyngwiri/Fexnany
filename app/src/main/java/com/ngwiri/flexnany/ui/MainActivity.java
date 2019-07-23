@@ -2,16 +2,17 @@ package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.ngwiri.flexnany.Network;
 import com.ngwiri.flexnany.R;
@@ -71,10 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-//                        Log.i(LOG_TAG, "onRefresh called from SwipeRefreshLayout");
-
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
                         getMaids();
                     }
                 }
@@ -156,6 +153,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
+//    private void refreshContent(){
+//        new Handler().postDelayed(new Runnable() {
+//                  @Override
+//                  public void run() {
+//                      mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.activity_list_item, getMaids());
+//                      mMaidsRecyclerView.setAdapter(mAdapter);
+//                      mSwipeRefresh.setRefreshing(false);
+//                  });
+//              }
+//    }
 
     @Override
     public void onBackPressed() {

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ui.AboutActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/aboutWebViewToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:navigationIcon="@drawable/ic_arrow"
         app:titleTextColor="#000">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <WebView
         android:id="@+id/aboutWebView"

@@ -33,7 +33,7 @@
             android:name=".ui.SignUpActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
-        
+
         <activity android:name=".ui.AboutActivity"
             android:screenOrientation="portrait" />
 
