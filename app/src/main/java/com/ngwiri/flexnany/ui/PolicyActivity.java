@@ -2,12 +2,14 @@ package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.ngwiri.flexnany.Constants;
 import com.ngwiri.flexnany.R;
 
 import butterknife.BindView;
@@ -42,7 +44,7 @@ public class PolicyActivity extends AppCompatActivity {
         });
 
 
-        mPolicyWebView.loadUrl("https://stanleyngwiri.github.io/POLICY/");
+        mPolicyWebView.loadUrl(Constants.ADS_POLICY_BASE_URL);
         mPolicyWebView.getSettings().setJavaScriptEnabled(true);
         mPolicyWebView.setWebViewClient(new WebViewClient());
 

@@ -1,13 +1,15 @@
 package com.ngwiri.flexnany.ui;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.ngwiri.flexnany.Constants;
 import com.ngwiri.flexnany.R;
 
 import butterknife.BindView;
@@ -41,7 +43,7 @@ public class AboutActivity extends AppCompatActivity {
         });
 
 
-        mAboutWebView.loadUrl("https://stanleyngwiri.github.io/ABOUT/");
+        mAboutWebView.loadUrl(Constants.ABOUT_BASE_URL);
         mAboutWebView.getSettings().setJavaScriptEnabled(true);
         mAboutWebView.setWebViewClient(new WebViewClient());
     }
