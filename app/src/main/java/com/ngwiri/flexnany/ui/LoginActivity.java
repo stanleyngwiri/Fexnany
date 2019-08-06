@@ -2,9 +2,8 @@ package com.ngwiri.flexnany.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,9 +45,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @BindView(R.id.loginLayout) LinearLayout mLoginLayout;
     @BindView(R.id.loginbuton) Button mLoginbuton;
-    @BindView(R.id.SignUp_Text) TextView mSignUp_Text;
+    @BindView(R.id.SignUp_Text) LinearLayout mSignUp_Text;
     @BindView(R.id.loginEmail) EditText mLoginEmail;
     @BindView(R.id.password) EditText mPassword;
+    @BindView(R.id.loginAppName) TextView mLoginAppName;
 
 
     @Override
@@ -64,6 +67,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mSignUp_Text.setOnClickListener(this);
 
         shakeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+
+
+        Typeface fredokaOneFonts = Typeface.createFromAsset(getAssets(), "fonts/fredoka_one/FredokaOne-Regular.ttf" );
+        mLoginAppName.setTypeface(fredokaOneFonts);
 
         //<--- CHECKING INTERNET CONNECTION START
         if(Network.isInternetAvailable(LoginActivity.this)) //returns true if internet available

@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.ngwiri.flexnany.Network;
 import com.ngwiri.flexnany.R;
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //    boolean doubleBackToExitPressedOnce = false;
     public static final String TAG = MainActivity.class.getSimpleName();
     public ArrayList<Maids> mMaids = new ArrayList<>();
-    @BindView(R.id.swipeRefresh)
-    SwipeRefreshLayout mSwipeRefresh;
     @BindView(R.id.maidsRecyclerView)
     RecyclerView mMaidsRecyclerView;
     private maidsListAdapter mAdapter;
@@ -67,16 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //CHECKING INTERNET CONNECTION END --->
-
-        mSwipeRefresh.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        getMaids();
-                    }
-                }
-        );
-
 
     }
 
@@ -154,16 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-//    private void refreshContent(){
-//        new Handler().postDelayed(new Runnable() {
-//                  @Override
-//                  public void run() {
-//                      mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.activity_list_item, getMaids());
-//                      mMaidsRecyclerView.setAdapter(mAdapter);
-//                      mSwipeRefresh.setRefreshing(false);
-//                  });
-//              }
-//    }
 
     @Override
     public void onBackPressed() {

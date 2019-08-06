@@ -2,9 +2,8 @@ package com.ngwiri.flexnany.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,9 +37,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
-//    boolean doubleBackToExitPressedOnce = false;
-
-
 
     @BindView(R.id.signUpLayout) LinearLayout mSignUpLayout;
     @BindView(R.id.FirstName) EditText mFirstName;
@@ -47,7 +46,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.Password) EditText mPassword;
     @BindView(R.id.confirm_password) EditText mConfirm_password;
     @BindView(R.id.signUpButton) Button mSignUpButton;
-    @BindView(R.id.back_to_login) TextView mBack_to_login;
+    @BindView(R.id.back_to_login) LinearLayout mBack_to_login;
+    @BindView(R.id.signUpAppName) TextView mSignUpAppName;
 
 
 
@@ -64,6 +64,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mBack_to_login.setOnClickListener(this);
 
         shakeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+
+        Typeface fredokaOneFonts = Typeface.createFromAsset(getAssets(), "fonts/fredoka_one/FredokaOne-Regular.ttf" );
+        mSignUpAppName.setTypeface(fredokaOneFonts);
+
 
         //<--- CHECKING INTERNET CONNECTION START
         if(Network.isInternetAvailable(SignUpActivity.this)) //returns true if internet available
@@ -122,8 +126,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             new CustomToast().Show_Toast(getApplicationContext(), view,
                     "All fields are required.");
         }
-
-
 
             // Check if email id valid or not
         else if (!m.find())
